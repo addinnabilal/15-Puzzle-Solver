@@ -13,5 +13,6 @@ class priorityQueue:
     def pop(self):
         return heappop(self.heap)
     
+    # cek apakah priority queue kosong
     def isEmpty(self):
         return self.heap == []

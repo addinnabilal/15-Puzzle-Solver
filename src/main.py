@@ -53,11 +53,15 @@ def solve(initiaBoard):
                 # push child node ke priority queue
                 priorQueue.push(childNode)
 
+step = 0
 # fungsi rekursif yang akan mencetak node berturut-turut dari root node ke solution node
 def printPath(solutionNode) :
+    global step
     if solutionNode == None :
         return
     printPath(solutionNode.parent)
+    step +=1
+    print("\n=== STEP ", step, "===")
     print(solutionNode.board)
 
 def main():
@@ -85,7 +89,7 @@ def main():
         solve(initialBoard)
         end = time.time()
         printPath(solutionNode)
-        print("\nTotal node generated =", totalNode)
+        print("\nNumber of nodes generated =", totalNode)
     else:
         end = time.time()
         print("Puzzle is not solveable!")
